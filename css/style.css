@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  width: 100%;
+  margin: 0 10px;
+}
+.error {
+  margin: 10px 0 5px 0;
+  color: #d20909;
+}
