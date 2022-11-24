@@ -330,12 +330,13 @@
             </select>
           </div>
           <div>
-            <div class="error error-user-zip"></div>
+            <div class="error error-user-zipCode"></div>
             <label for="user-zip">ZIP Code: </label>
             <input
               type="text"
               id="zip-code"
               placeholder="Enter Zip Code Here..."
+              maxlength="4"
             />
           </div>
           <div>
@@ -351,23 +352,37 @@
           <div>
             <div class="error error-user-sex"></div>
             <label for="user-sex">Sex: </label>
-            <input type="radio" class="sex" value="male" />
+            <input type="radio" name="sex" class="sex" id="male" value="male" />
             <label for="male">Male</label>
-            <input type="radio" class="sex" value="female" />
-            <label for="male">Female</label>
+            <input
+              type="radio"
+              name="sex"
+              class="sex"
+              id="female"
+              value="female"
+            />
+            <label for="female">Female</label>
           </div>
           <div>
             <div class="error error-user-language"></div>
             <label for="user-language">Language</label>
-            <input type="checkbox" class="language" value="english" />
-            <label for="english">English</label>
             <input
               type="checkbox"
+              name="language"
               class="language"
-              value="non-english"
+              id="english"
+              value="english"
+            />
+            <label for="english">English</label>
+            <input
+              name="language"
+              type="checkbox"
+              class="language"
+              id="none-english"
+              value="none-english"
               checked
             />
-            <label for="english">Non English</label>
+            <label for="none-english">Non English</label>
           </div>
           <div>
             <div class="error error-user-country"></div>
@@ -375,10 +390,10 @@
             <textarea
               name="about"
               id="about"
-              placeholder="Enter Text Here..."
+              placeholder="(Optional)"
             ></textarea>
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" id="register-button">Register</button>
         </form>
       </div>
     </div>

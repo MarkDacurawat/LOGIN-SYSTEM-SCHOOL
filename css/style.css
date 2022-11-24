@@ -3,11 +3,39 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.error {
+  font-size: 0.8rem;
+  margin: 5px 0 5px 0;
+  color: #f21818;
+}
+
+body {
+  background-color: #171717;
+}
+
 .main {
   width: 100%;
-  margin: 0 10px;
+  height: 100vh;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.error {
-  margin: 10px 0 5px 0;
-  color: #d20909;
+
+.main .registration {
+  border: solid 2px #e2570c;
+  border-radius: 10px;
+  width: 350px;
+  padding: 20px;
+}
+
+.main .registration .form-title {
+  color: #e2570c;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
