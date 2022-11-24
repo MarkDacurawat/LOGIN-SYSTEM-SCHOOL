@@ -352,37 +352,47 @@
           <div>
             <div class="error error-user-sex"></div>
             <label for="user-sex">Sex: </label>
-            <input type="radio" name="sex" class="sex" id="male" value="male" />
-            <label for="male">Male</label>
-            <input
-              type="radio"
-              name="sex"
-              class="sex"
-              id="female"
-              value="female"
-            />
-            <label for="female">Female</label>
+            <div>
+              <input
+                type="radio"
+                name="sex"
+                class="sex"
+                id="male"
+                value="male"
+              />
+              <label for="male">Male</label>
+              <input
+                type="radio"
+                name="sex"
+                class="sex"
+                id="female"
+                value="female"
+              />
+              <label for="female">Female</label>
+            </div>
           </div>
           <div>
             <div class="error error-user-language"></div>
             <label for="user-language">Language</label>
-            <input
-              type="checkbox"
-              name="language"
-              class="language"
-              id="english"
-              value="english"
-            />
-            <label for="english">English</label>
-            <input
-              name="language"
-              type="checkbox"
-              class="language"
-              id="none-english"
-              value="none-english"
-              checked
-            />
-            <label for="none-english">Non English</label>
+            <div>
+              <input
+                type="checkbox"
+                name="language"
+                class="language"
+                id="english"
+                value="english"
+              />
+              <label for="english">English</label>
+              <input
+                name="language"
+                type="checkbox"
+                class="language"
+                id="none-english"
+                value="none-english"
+                checked
+              />
+              <label for="none-english">Non English</label>
+            </div>
           </div>
           <div>
             <div class="error error-user-country"></div>
@@ -393,7 +403,9 @@
               placeholder="(Optional)"
             ></textarea>
           </div>
-          <button type="submit" id="register-button">Register</button>
+          <div class="register-btn-container">
+            <button type="submit" id="register-button">Register</button>
+          </div>
         </form>
       </div>
     </div>

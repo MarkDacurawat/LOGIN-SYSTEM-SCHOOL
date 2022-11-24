@@ -6,8 +6,8 @@
 
 .error {
   font-size: 0.8rem;
-  margin: 5px 0 5px 0;
   color: #f21818;
+  margin-bottom: 3px;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 
 .main {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   color: #ffffff;
 
   display: flex;
@@ -28,7 +28,8 @@ body {
   border: solid 2px #e2570c;
   border-radius: 10px;
   width: 350px;
-  padding: 20px;
+  padding: 10px 20px;
+  margin: 30px 0;
 }
 
 .main .registration .form-title {
@@ -38,4 +39,50 @@ body {
   font-size: 0.8rem;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.main .registration .registrationForm > div {
+  margin: 10px;
+  display: grid;
+}
+
+.main .registration .registrationForm div label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+.main .registration .registrationForm div input[type="text"],
+.main .registration .registrationForm div input[type="password"],
+.main .registration .registrationForm div select {
+  width: 100%;
+  padding: 5px 5px;
+}
+
+.main .registration .registrationForm div select {
+  cursor: pointer;
+}
+
+.main .registration .registrationForm div input[type="radio"],
+.main .registration .registrationForm div input[type="radio"] {
+  cursor: pointer;
+}
+
+.main .registration .registrationForm div textarea {
+  resize: vertical;
+  max-height: 130px;
+  min-height: 80px;
+}
+
+.main .registration .registrationForm .register-btn-container #register-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 7px 3px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  cursor: pointer;
+  color: #171717;
+  background-color: #e2570c;
+  border: none;
 }

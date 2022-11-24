@@ -12,7 +12,8 @@ registrationForm.onsubmit = (e) => {
   const email = document.querySelector("#email");
   const sex = document.querySelector('input[name="sex"]:checked');
   const language = document.querySelector('input[name="language"]:checked');
-  const about = document.querySelector("#about");
+
+  let haveError = false;
 
   // Required all inputs
   //   if (
@@ -34,21 +35,23 @@ registrationForm.onsubmit = (e) => {
   const userIdValue = userId.value;
   if (!userIdValue || userIdValue.length < 5 || userIdValue.length > 12) {
     const errorUserId = document.querySelector(".error-user-id");
-    errorUserId.textContent = "Required and Must Be 5 to 12";
+    errorUserId.textContent = "* Required and Must Be 5 to 12";
     const errorUserIdInterval = setInterval(() => {
       errorUserId.textContent = "";
       clearInterval(errorUserIdInterval);
     }, 2000);
+    haveError = true;
   }
 
   const passwordValue = password.value;
   if (!passwordValue || passwordValue.length < 7 || passwordValue.length > 12) {
     const errorPassword = document.querySelector(".error-user-password");
-    errorPassword.textContent = "Required and Must Be 7 to 12";
+    errorPassword.textContent = "* Required and Must Be 7 to 12";
     const errorPasswordInterval = setInterval(() => {
       errorPassword.textContent = "";
       clearInterval(errorPasswordInterval);
     }, 2000);
+    haveError = true;
   }
 
   const userNameValue = userName.value;
@@ -57,45 +60,38 @@ registrationForm.onsubmit = (e) => {
       return false;
     }
 
-    return /^[a-zA-Z]+$/.test(char);
+    return /^[a-zA-Z\s]*$/.test(char);
   };
   if (!charIsLetter(userNameValue)) {
     const errorUserName = document.querySelector(".error-user-name");
-    errorUserName.textContent = "Required and Alphabet Only";
+    errorUserName.textContent = "* Required and Alphabet Only";
     const errorUserNameInterval = setInterval(() => {
       errorUserName.textContent = "";
       clearInterval(errorUserNameInterval);
     }, 2000);
+    haveError = true;
   }
 
   const countryValue = country.value;
   if (!countryValue) {
     const errorUserCountry = document.querySelector(".error-user-country");
-    errorUserCountry.textContent = "Required & Must Select a country";
+    errorUserCountry.textContent = "* Required & Must Select a country";
     const errorUserCountryInterval = setInterval(() => {
       errorUserCountry.textContent = "";
       clearInterval(errorUserCountryInterval);
     }, 2000);
+    haveError = true;
   }
 
   const zipCodeValue = zipCode.value;
   if (isNaN(zipCodeValue) || !zipCodeValue) {
     const errorUserZipCode = document.querySelector(".error-user-zipCode");
-    errorUserZipCode.textContent = "Required and Must be a 4 digit number";
+    errorUserZipCode.textContent = "* Required and Must be a 4 digit number";
     const errorUserZipCodeInterval = setInterval(() => {
       errorUserZipCode.textContent = "";
       clearInterval(errorUserZipCodeInterval);
     }, 2000);
-  }
-
-  const emailValue = email.value;
-  if (!emailValue || !validateEmail(emailValue)) {
-    const errorUserEmail = document.querySelector(".error-user-email");
-    errorUserEmail.textContent = "Required and Must be a valid email";
-    const errorUserEmailInterval = setInterval(() => {
-      errorUserEmail.textContent = "";
-      clearInterval(errorUserEmailInterval);
-    }, 2000);
+    haveError = true;
   }
 
   const validateEmail = (char) => {
@@ -104,6 +100,17 @@ registrationForm.onsubmit = (e) => {
     );
   };
 
+  const emailValue = email.value;
+  if (!emailValue || !validateEmail(emailValue)) {
+    const errorUserEmail = document.querySelector(".error-user-email");
+    errorUserEmail.textContent = "* Required and Must be a valid email";
+    const errorUserEmailInterval = setInterval(() => {
+      errorUserEmail.textContent = "";
+      clearInterval(errorUserEmailInterval);
+    }, 2000);
+    haveError = true;
+  }
+
   if (sex == null) {
     const errorUserSex = document.querySelector(".error-user-sex");
     errorUserSex.textContent = "* Required";
@@ -111,6 +118,7 @@ registrationForm.onsubmit = (e) => {
       errorUserSex.textContent = "";
       clearInterval(errorUserSexInterval);
     }, 2000);
+    haveError = true;
   }
 
   if (language == null) {
@@ -120,6 +128,7 @@ registrationForm.onsubmit = (e) => {
       errorUserLanguage.textContent = "";
       clearInterval(errorUserLanguageIdInterval);
     }, 2000);
+    haveError = true;
   }
 
   // Disable Button
@@ -129,6 +138,30 @@ registrationForm.onsubmit = (e) => {
     registerButton.disabled = false;
     clearInterval(registerButtonInterval);
   }, 2000);
+
+  if (!haveError) {
+    alert(`
+    ************************
+    ************************
+    ************************
+
+      REGISTRATION COMPLETED!!
+      USER INFO:
+
+      USER ID: ${userIdValue}
+      NAME: ${userNameValue}
+      ADDRESS: ${address.value}
+      COUNTRY: ${countryValue}
+      ZIP CODE: ${zipCodeValue}
+      EMAIL: ${emailValue}
+
+      CODE BY: MARK DACURAWAT
+
+    ************************
+    ************************
+    ************************
+    `);
+  }
 };
 
 // CODE BY: MARK RESMA DACURAWAT
