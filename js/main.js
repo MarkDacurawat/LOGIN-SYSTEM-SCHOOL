@@ -62,7 +62,7 @@ registrationForm.onsubmit = (e) => {
 
     return /^[a-zA-Z\s]*$/.test(char);
   };
-  if (!charIsLetter(userNameValue)) {
+  if (!userNameValue || !charIsLetter(userNameValue)) {
     const errorUserName = document.querySelector(".error-user-name");
     errorUserName.textContent = "* Required and Alphabet Only";
     const errorUserNameInterval = setInterval(() => {
